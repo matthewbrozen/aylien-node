@@ -24,6 +24,9 @@ Go to localhost:3000 in the browser
 
 This API has three RESTful routes set up; GET (all), POST (one), DELETE (one).
 
+
+## POST
+
 Make a POST call to the deployed API at https://aylienapi.herokuapp.com/sentiments with a company as a string and you get the average positive, neutral and negative sentiment of the most recent 100 articles related to the company.
 
 Sample return
@@ -247,6 +250,11 @@ positive_article_title: [
 "Bexar County's top 10 property taxpayers for 2016 H-E-B Wal-Mart USAA Halliburton Microsoft",
 "A new Microsoft PowerPoint feature is straight out of 'Star Trek'"
 ]}`
+
+
+
+
+##GET
 
 Make a GET call to the deployed API at https://aylienapi.herokuapp.com/sentiments to return all the records in the database. Sample return
 
@@ -1134,6 +1142,21 @@ positive_article_title: [
 "Cramer: How Wal-Mart is giving Amazon a run for its money",
 "Amazon Web Services : AWS Training and Certification Portal Now Live"
 ]}`
+
+
+
+
+
+
+##DELETE
+
+Make a DELETE call to the deployed API at https://aylienapi.herokuapp.com/sentiments/:id and delete the record with that id.
+
+Sample return
+
+`{
+    "message": "Senitment successfully deleted"
+}`
 
 
 ## Deployment
