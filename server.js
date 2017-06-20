@@ -1,5 +1,6 @@
 //General App Set Up
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -17,6 +18,7 @@ var sentiments = require('./routes/sentiment');
 
 //express declaration
 var app = express();
+app.use(cors())
 
 //database connection deployed and local
 var db = process.env.MONGODB_URI || 'mongodb://localhost:27017/aylienapi'
