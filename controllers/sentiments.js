@@ -107,14 +107,14 @@ function callAylien(req, res, next){
         sentiment.company = req.body.company;
         sentiment.count = data.stories.length;
         sentiment.positive_score = positive;
-        sentiment.positive_article_title = h;
-        sentiment.positive_article_source = j;
+        sentiment.positive_article_title = j;
+        sentiment.positive_article_source = h;
         sentiment.neutral_score = neutral;
-        sentiment.neutral_article_title = k;
-        sentiment.neutral_article_source = l;
+        sentiment.neutral_article_title = l;
+        sentiment.neutral_article_source = k;
         sentiment.negative_score = negative;
-        sentiment.negative_article_title = m;
-        sentiment.negative_article_source = n;
+        sentiment.negative_article_title = n;
+        sentiment.negative_article_source = m;
 
     sentiment.save(function(err, sentiment) {
       if (err) throw err;
