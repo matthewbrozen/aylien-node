@@ -47,7 +47,7 @@ function index(req, res, next) {
 //post function
 function callAylien(req, res, next){
 
-
+app.use(allowCors);
 
   var opts = {
     'title': req.body.company,
