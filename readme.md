@@ -254,7 +254,7 @@ positive_article_title: [
 
 
 
-##GET
+## GET
 
 Make a GET call to the deployed API at https://aylienapi.herokuapp.com/sentiments to return all the records in the database. Sample return
 
@@ -1148,7 +1148,7 @@ positive_article_title: [
 
 
 
-##DELETE
+## DELETE
 
 Make a DELETE call to the deployed API at https://aylienapi.herokuapp.com/sentiments/:id and delete the record with that id.
 
