@@ -71,11 +71,7 @@ function callAylien(req, res, next){
       var f = 0;
       var g = 0;
       for (var i = 0; i < data.stories.length; i++){
-        // console.log("Article Source : " + data.stories[i].source.homePageUrl);
-        // console.log("Article Name : " + data.stories[i].title);
-        // console.log("Article Date : " + data.stories[i].publishedAt);
-        // console.log(" Title Polarity is : " + data.stories[i].sentiment.title.polarity + ", and the Polarity Score is : " + data.stories[i].sentiment.title.score );
-        // console.log(" Body of Article Polarity is : " + data.stories[i].sentiment.body.polarity + ", and the Polarity Score is : " + data.stories[i].sentiment.body.score);
+
         if(data.stories[i].sentiment.body.polarity == "positive"){
           b = b + data.stories[i].sentiment.body.score;
           c++;
@@ -94,6 +90,7 @@ function callAylien(req, res, next){
       var positive = (b/c) * 100;
       var neutral = (d/e) * 100;
       var negative = (f/g) * 100;
+
       var sentiment = new Sentiment();
         sentiment.company = req.body.company;
         sentiment.count = data.stories.length;
@@ -109,8 +106,6 @@ function callAylien(req, res, next){
     }
   };
   apiInstance.listStories(opts, callback);
-
-
 
 }
 
