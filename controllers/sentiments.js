@@ -70,20 +70,32 @@ function callAylien(req, res, next){
       var e = 0;
       var f = 0;
       var g = 0;
+      var h = [];
+      var j = [];
+      var k = [];
+      var l = [];
+      var m = [];
+      var n = [];
       for (var i = 0; i < data.stories.length; i++){
 
         if(data.stories[i].sentiment.body.polarity == "positive"){
           b = b + data.stories[i].sentiment.body.score;
           c++;
+          h.push(data.stories[i].source.homePageUrl);
+          j.push(data.stories[i].title);
         }
         else if(data.stories[i].sentiment.body.polarity == "neutral"){
           d = d + data.stories[i].sentiment.body.score;
           e++;
+          k.push(data.stories[i].source.homePageUrl);
+          l.push(data.stories[i].title);
 
         }
         else if(data.stories[i].sentiment.body.polarity == "negative"){
           f = f + data.stories[i].sentiment.body.score;
           g++;
+          m.push(data.stories[i].source.homePageUrl);
+          n.push(data.stories[i].title);
 
         }
       }
@@ -95,8 +107,14 @@ function callAylien(req, res, next){
         sentiment.company = req.body.company;
         sentiment.count = data.stories.length;
         sentiment.positive_score = positive;
+        sentiment.positive_article_title = h;
+        sentiment.positive_article_source = j;
         sentiment.neutral_score = neutral;
+        sentiment.neutral_article_title = k;
+        sentiment.neutral_article_source = l;
         sentiment.negative_score = negative;
+        sentiment.negative_article_title = m;
+        sentiment.negative_article_source = n;
 
     sentiment.save(function(err, sentiment) {
       if (err) throw err;

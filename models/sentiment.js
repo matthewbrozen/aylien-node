@@ -4,8 +4,14 @@ var sentimentSchema = mongoose.Schema({
     company: String,
     count: Number,
     positive_score: Number,
+    positive_article_title: Array,
+    positive_article_source: Array,
     neutral_score: Number,
-    negative_score: Number
+    neutral_article_title: Array,
+    neutral_article_source: Array,
+    negative_score: Number,
+    negative_article_title: Array,
+    negative_article_source: Array
 });
 
 var Sentiment = mongoose.model("Sentiment", sentimentSchema);
