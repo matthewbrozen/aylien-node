@@ -61,7 +61,7 @@ app.use(allowCors);
 
   var callback = function(error, data, response) {
     if (error) {
-      console.error(error);
+      throw error;
     } else {
 
       var b = 0;
