@@ -127,7 +127,19 @@ app.use(allowCors);
 
 }
 
+
+//destroy a report
+function destroy(req, res, next) {
+  var id = req.params.id;
+  console.log(id);
+  Sentiment.remove({_id: id}, function(err) {
+    if (err) throw err;
+    res.json({message: "Senitment successfully deleted"});
+  }).select('-_v');
+}
+
 module.exports = {
   index: index,
-  callAylien: callAylien
+  callAylien: callAylien,
+  deleteOne: destroy
 }
