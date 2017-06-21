@@ -31,7 +31,8 @@ Make a POST call to the deployed API at https://aylienapi.herokuapp.com/sentimen
 
 Sample return
 
-`{_id: "594974500f508f0004bd91a4",
+```javascript
+{_id: "594974500f508f0004bd91a4",
 negative_score: 77.75976538461539,
 neutral_score: 68.56919285714285,
 positive_score: 83.98184333333333,
@@ -249,7 +250,8 @@ positive_article_title: [
 "Inside Microsoft's Cosmos DB",
 "Bexar County's top 10 property taxpayers for 2016 H-E-B Wal-Mart USAA Halliburton Microsoft",
 "A new Microsoft PowerPoint feature is straight out of 'Star Trek'"
-]}`
+]}
+```
 
 
 
@@ -258,7 +260,8 @@ positive_article_title: [
 
 Make a GET call to the deployed API at https://aylienapi.herokuapp.com/sentiments to return all the records in the database. Sample return
 
-`allSentiments: [
+```javascript
+allSentiments: [
 {
 _id: "594974500f508f0004bd91a4",
 negative_score: 77.75976538461539,
@@ -1141,7 +1144,8 @@ positive_article_title: [
 "Is it too late for Apple's Siri to catch up with Google and Amazon? (AB Extra Crunchy, Ep. 85) - Video",
 "Cramer: How Wal-Mart is giving Amazon a run for its money",
 "Amazon Web Services : AWS Training and Certification Portal Now Live"
-]}`
+]}
+```
 
 
 
@@ -1154,9 +1158,11 @@ Make a DELETE call to the deployed API at https://aylienapi.herokuapp.com/sentim
 
 Sample return
 
-`{
+```javascript
+{
     "message": "Senitment successfully deleted"
-}`
+}
+```
 
 
 ## Deployment
