@@ -44,6 +44,16 @@ function index(req, res, next) {
   }).select('-_v');
 }
 
+
+//show one function
+function show(req, res, next) {
+  var id = req.params.id;
+  Sentiment.findOne({_id: id}, function(err, sentiment) {
+    if (err) throw err;
+    res.json({selectedSentiment: sentiment});
+  });
+}
+
 //post function
 function callAylien(req, res, next){
 
@@ -76,6 +86,11 @@ app.use(allowCors);
       var l = [];
       var m = [];
       var n = [];
+
+      var o = [];
+      var p = [];
+      var q = [];
+
       for (var i = 0; i < data.stories.length; i++){
 
         if(data.stories[i].sentiment.body.polarity == "positive"){
@@ -83,12 +98,14 @@ app.use(allowCors);
           c++;
           h.push(data.stories[i].source.homePageUrl);
           j.push(data.stories[i].title);
+          o.push(data.stories[i].summary.sentences);
         }
         else if(data.stories[i].sentiment.body.polarity == "neutral"){
           d = d + data.stories[i].sentiment.body.score;
           e++;
           k.push(data.stories[i].source.homePageUrl);
           l.push(data.stories[i].title);
+          p.push(data.stories[i].summary.sentences);
 
         }
         else if(data.stories[i].sentiment.body.polarity == "negative"){
@@ -96,6 +113,7 @@ app.use(allowCors);
           g++;
           m.push(data.stories[i].source.homePageUrl);
           n.push(data.stories[i].title);
+          q.push(data.stories[i].summary.sentences);
 
         }
       }
@@ -109,12 +127,15 @@ app.use(allowCors);
         sentiment.positive_score = positive;
         sentiment.positive_article_title = j;
         sentiment.positive_article_source = h;
+        sentiment.positive_article_summary = o;
         sentiment.neutral_score = neutral;
         sentiment.neutral_article_title = l;
         sentiment.neutral_article_source = k;
+        sentiment.neutral_article_summary= p;
         sentiment.negative_score = negative;
         sentiment.negative_article_title = n;
         sentiment.negative_article_source = m;
+        sentiment.negative_article_summary = q;
 
     sentiment.save(function(err, sentiment) {
       if (err) throw err;
@@ -140,6 +161,7 @@ function destroy(req, res, next) {
 
 module.exports = {
   index: index,
+  show: show,
   callAylien: callAylien,
   deleteOne: destroy
 }

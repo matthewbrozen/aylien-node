@@ -10,6 +10,7 @@ router.use(function(req, res, next){
 });
 
 router.get('/', sentimentsController.index);
+router.get('/:id', sentimentsController.show);
 router.post('/', sentimentsController.callAylien);
 router.delete('/:id', sentimentsController.deleteOne);
 
